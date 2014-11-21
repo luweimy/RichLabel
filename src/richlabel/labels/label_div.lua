@@ -7,7 +7,7 @@ local function div_createlabel(self, word, fontname, fontsize, fontcolor)
 	end
 	local label = cc.Label:createWithTTF(word, fontname, fontsize)
 	if not label then 
-		self:printf("create label failed")
+		self:printf("<div> - create label failed")
 		return
 	end
 	label:setColor(fontcolor)
