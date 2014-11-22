@@ -9,7 +9,7 @@ return function (self, params, default)
 	-- 创建精灵，自动在帧缓存中查找，屏蔽了图集中加载和直接加载的区别
 	local sprite = self:getSprite(params.src)
 	if not sprite then
-		self:print("<img> - create sprite failde")
+		self:printf("<img> - create sprite failde")
 		return
 	end
 	if params.scale then
