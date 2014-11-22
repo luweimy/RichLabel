@@ -67,10 +67,9 @@ function _M.parse(text)
 	-- 标签头存储了格式信息，碰到标签时可以直接使用当前栈顶的标签头格式信息，应用到标签之间的内容上
 	local labelheadstack = {}
 	-- 迭代所有格式为<xxx>的标签(包含了标签头和标签尾巴)
-	local beginindex, endindex = string.find(text, "%b<>", 1)
-	while beginindex do
-		-- 获得当前标签
-		local label = string.sub(text, beginindex, endindex)
+	local index = 0
+	for beginindex, endindex in function() return string.find(text, "%b<>", index) end do
+	    local label = string.sub(text, beginindex, endindex)
 
 		-- 检测字符串是否以"</"开头
 		if string.find(label, "^</") then
@@ -82,8 +81,8 @@ function _M.parse(text)
 		else-- 检测到标签头
 			_M.disposeLabelHead(labelheadstack, parsedtable, text, label, beginindex, endindex)
 		end
-		-- 获得下一个标签的位置
-		beginindex, endindex = string.find(text, "%b<>", endindex)
+
+	    index = endindex + 1
 	end
 
 	return parsedtable
