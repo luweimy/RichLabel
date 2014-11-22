@@ -55,8 +55,20 @@ RichLabel基于Cocos2dx+Lua v3.x
 
 **示例：**
 ```
-local text = "hello<div>hello<div fontcolor=#ffffff>,</div>world</div>你\n好<div fontcolor=#ff00bb>world</div>"
-local label = RichLabel.new{
+------------------------------------------------------
+------------  TEST RICH-LABEL
+------------------------------------------------------ 
+
+local test_text = {
+    "<div fontcolor=#ff0000>hello</div><div fontcolor=#00ff00>hello</div><div fontsize=12>你</div><div fontSize=26 fontcolor=#ff00bb>好</div>ok",
+    "<div outline=1,#ff0000 >hello</div>",
+    "<div glow=#ff0000 >hello</div>",
+    "<div shadow=2,-2,0.5,#ff0000 >hello</div>",
+    "hello<img src='res/test.png' scale=0.5 rotate=90 visible=true />world",
+}
+for i=1, #test_text do
+    local RichLabel = require("richlabel.RichLabel")
+    local label = RichLabel.new {
         fontName = "res/msyh.ttf",
         fontSize = 20,
         fontColor = cc.c3b(255, 255, 255),
@@ -64,9 +76,15 @@ local label = RichLabel.new{
         lineSpace=0,
         charSpace=0,
     }
-label:setString(text)  
-self:addChild(label)  
+    label:setString(test_text[i])
+    label:setPosition(cc.p(380,500-i*30))
+    label:playAnimation()
+    sceneGame:addChild(label)
+
+    label:debugDraw()
+end 
 ```
+
 
 **基本接口：**
 
