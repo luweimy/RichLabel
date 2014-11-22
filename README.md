@@ -94,3 +94,4 @@ end
 *当前版本：v1.0.1*  
 v1.0.0 - 支持`<div>`标签，仅支持基本属性(fontname, fontsize, fontcolor)  
 v1.0.1 - 增加`<div>`标签属性(shadow, outline, glow)的支持，增加`<img>`标签的支持(labelparser增加解析自闭和标签支持) 
+![Alt text](https://raw.githubusercontent.com/Luweimy/RichLabel/master/snapshot/4.png)
