@@ -1,8 +1,9 @@
-富文本标签  
+富文本标签
+---
 RichLabel基于Cocos2dx+Lua v3.x  
 扩展标签极其简单，只需添加一个遵守规则的标签插件即可，无需改动已存在代码！！！  
 
-特性：
+**特性：**
     
 *   支持标签定义富文本展示格式
 *   支持图片(缩放，旋转，是否可见)
@@ -19,7 +20,8 @@ RichLabel基于Cocos2dx+Lua v3.x
 *   支持遍历字符，行等
 *   支持获得任意行的行高
         
-标签支持：  
+**标签支持：**  
+
 `<div>` - 文本标签，用于修饰文件，非自闭和标签，必须配对出现  
 属性： fontname, fontsize, fontcolor, outline, glow, shadow  
 格式：
@@ -30,9 +32,9 @@ RichLabel基于Cocos2dx+Lua v3.x
 + shadow=10,10,10,#ff0099 - (offset_x, offset_y, blur_radius, shadow_color)
 + outline=1,#ff0099       - (outline_size, outline_color)
 + glow=#ff0099            - (glow_color) 
-* outline, glow 不能同时生效
-* 使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果
-* 使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果
+* *outline, glow 不能同时生效*
+* *使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果*
+* *使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果*
     
 `<img />` - 图像标签，用于添加图片，自闭合标签，必须自闭合<img />
 属性：src, scale, rotate, visible
@@ -43,12 +45,12 @@ RichLabel基于Cocos2dx+Lua v3.x
 + rotate=90
 + visible=false
 
-注意：  
+**注意：**  
 
 + 内部使用Cocos2dx的TTF标签限制，要设置默认的正确的字体，否则无法显示  
 + 如果要设置中文，必须使用含有中文字体的TTF
 
-示例：
+**示例：**
 ```
 local text = "hello<div>hello<div fontcolor=#ffffff>,</div>world</div>你\n好<div fontcolor=#ff00bb>world</div>"
 local label = RichLabel.new{
@@ -62,11 +64,12 @@ local label = RichLabel.new{
 label:setString(text)  
 self:addChild(label)  
 ```
-基本接口:  
+
+**基本接口：**
 
 * setString - 设置要显示的富文本   
 * getSize - 获得Label的大小  
 
-当前版本：v1.0.1    
+*当前版本：v1.0.1*  
 v1.0.0 - 支持`<div>`标签，仅支持基本属性(fontname, fontsize, fontcolor)  
 v1.0.1 - 增加`<div>`标签属性(shadow, outline, glow)的支持，增加`<img>`标签的支持(labelparser增加解析自闭和标签支持) 
