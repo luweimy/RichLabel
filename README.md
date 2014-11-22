@@ -23,7 +23,13 @@ RichLabel基于Cocos2dx+Lua v3.x
 **标签支持：**  
 
 `<div>` - 文本标签，用于修饰文件，非自闭和标签，必须配对出现    
-属性： fontname, fontsize, fontcolor, outline, glow, shadow    
+属性： fontname, fontsize, fontcolor, outline, glow, shadow   
+注意：
+
+* *outline, glow 不能同时生效*
+* *使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果*
+* *使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果*
+
 格式：
 
 + fontname='pathto/msyh.ttf'
@@ -32,13 +38,10 @@ RichLabel基于Cocos2dx+Lua v3.x
 + shadow=10,10,10,#ff0099 - (offset_x, offset_y, blur_radius, shadow_color)
 + outline=1,#ff0099       - (outline_size, outline_color)
 + glow=#ff0099            - (glow_color) 
-* *outline, glow 不能同时生效*
-* *使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果*
-* *使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果*
     
 `<img />` - 图像标签，用于添加图片，自闭合标签，必须自闭合<img />  
 属性：src, scale, rotate, visible  
-注意：图片会首先在帧缓存中加载，否则直接在磁盘上加载  
+注意：*图片会首先在帧缓存中加载，否则直接在磁盘上加载*  
 格式：  
 + src="pathto/avator.png"
 + scale=0.5
