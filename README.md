@@ -21,37 +21,37 @@ RichLabel基于Cocos2dx+Lua v3.x
         
 标签支持：  
 ```
-    <div> - 文本标签，用于修饰文件，非自闭和标签，必须配对出现  
-    属性： fontname, fontsize, fontcolor, outline, glow, shadow  
-    格式：
-        fontname='pathto/msyh.ttf'
-        fontsize=30
-        fontcolor=#ff0099
-        shadow=10,10,10,#ff0099 - (offset_x, offset_y, blur_radius, shadow_color)
-        outline=1,#ff0099       - (outline_size, outline_color)
-        glow=#ff0099            - (glow_color) 
-        * outline, glow 不能同时生效
-        * 使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果
-        * 使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果
-        
-    <img /> - 图像标签，用于添加图片，自闭合标签，必须自闭合<img />
-        属性：src, scale, rotate, visible
-        注意：图片会首先在帧缓存中加载，否则直接在磁盘上加载
-        格式：
-            src="pathto/avator.png"
-            scale=0.5
-            rotate=90
-            visible=false
+<div> - 文本标签，用于修饰文件，非自闭和标签，必须配对出现  
+属性： fontname, fontsize, fontcolor, outline, glow, shadow  
+格式：
+    fontname='pathto/msyh.ttf'
+    fontsize=30
+    fontcolor=#ff0099
+    shadow=10,10,10,#ff0099 - (offset_x, offset_y, blur_radius, shadow_color)
+    outline=1,#ff0099       - (outline_size, outline_color)
+    glow=#ff0099            - (glow_color) 
+    * outline, glow 不能同时生效
+    * 使用glow会自动修改ttfConfig.distanceFieldEnabled=true，否则没有效果
+    * 使用描边效果后，ttfConfig.distanceFieldEnabled=false，否则没有效果
+    
+<img /> - 图像标签，用于添加图片，自闭合标签，必须自闭合<img />
+属性：src, scale, rotate, visible
+注意：图片会首先在帧缓存中加载，否则直接在磁盘上加载
+格式：
+    src="pathto/avator.png"
+    scale=0.5
+    rotate=90
+    visible=false
 ```
 注意：  
-    内部使用Cocos2dx的TTF标签限制，要设置默认的正确的字体，否则无法显示  
-    如果要设置中文，必须使用含有中文字体的TTF
++ 内部使用Cocos2dx的TTF标签限制，要设置默认的正确的字体，否则无法显示  
++ 如果要设置中文，必须使用含有中文字体的TTF
 示例：
 ```
-    local text = "hello<div>hello<div fontcolor=#ffffff>,</div>world</div>你\n好<div fontcolor=#ff00bb>world</div>"
-    local label = RichLabel.new()
-    label:setString(text)  
-    self:addChild(label)  
+local text = "hello<div>hello<div fontcolor=#ffffff>,</div>world</div>你\n好<div fontcolor=#ff00bb>world</div>"
+local label = RichLabel.new()
+label:setString(text)  
+self:addChild(label)  
 ```
 基本接口:  
 
