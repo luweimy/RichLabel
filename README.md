@@ -1,9 +1,9 @@
 富文本标签
 ---
 RichLabel基于Cocos2dx+Lua v3.x  
-扩展标签极其简单，只需添加一个遵守规则的标签插件即可，无需改动已存在代码！！！     
-[详细介绍](http://www.cnblogs.com/luweimy/p/4114449.html)       
-
+扩展标签极其简单，只需添加一个遵守规则的标签插件即可，无需改动已存在代码！！   
+如果不喜欢当前的富文本语法，也可以自己写标签解析器，只要转为指定的中间格式交给RichLabel处理即可！！   
+[详细介绍](http://www.cnblogs.com/luweimy/p/4114449.html) | [中间格式参考标签解析器](https://github.com/Luweimy/labelparser)       
 **特性：**
     
 *   支持标签定义富文本展示格式
